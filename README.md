@@ -1,1 +1,1 @@
-# SPOJ
+# 02-ks-strukt
