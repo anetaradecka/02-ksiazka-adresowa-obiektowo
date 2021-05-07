@@ -1,1 +1,1 @@
-# 02-ks-strukt
+# 02-ks-obiekt
