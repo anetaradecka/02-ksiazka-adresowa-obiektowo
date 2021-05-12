@@ -1,4 +1,8 @@
 #include <iostream>
+#ifndef UZYTKOWNIK.h
+#define UZYTKOWNIK.h
+
+
 
 using namespace std;
 
@@ -17,3 +21,4 @@ public:
     string pobierzLogin();
     string pobierzHaslo();
 };
+#endif // UZYTKOWNIK
