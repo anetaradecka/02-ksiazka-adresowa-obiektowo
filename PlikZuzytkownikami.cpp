@@ -1,6 +1,6 @@
 #include "PlikZuzytkownikami.h"
 
-bool PlikZuzytkownikami::czyPlikJestPusty(fstream &plikTekstowy) {
+bool PlikZUzytkownikami::czyPlikJestPusty(fstream &plikTekstowy) {
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -8,7 +8,7 @@ bool PlikZuzytkownikami::czyPlikJestPusty(fstream &plikTekstowy) {
         return false;
 }
 
-void PlikZuzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
+void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
@@ -26,7 +26,7 @@ void PlikZuzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     plikTekstowy.close();
 }
 
-string PlikZuzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
     string liniaZDanymiUzytkownika = "";
 
     liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownik.pobierzId())+ '|';
@@ -36,7 +36,7 @@ string PlikZuzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
     return liniaZDanymiUzytkownika;
 }
 
-vector <Uzytkownik> PlikZuzytkownikami::wczytajUzytkownikowZPliku() {
+vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
     Uzytkownik uzytkownik;
     vector <Uzytkownik> uzytkownicy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
@@ -54,7 +54,7 @@ vector <Uzytkownik> PlikZuzytkownikami::wczytajUzytkownikowZPliku() {
     return uzytkownicy;
 }
 
-Uzytkownik PlikZuzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami) {
+Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami) {
     Uzytkownik uzytkownik;
     string pojedynczaDanaUzytkownika = "";
     int numerPojedynczejDanejUzytkownika = 1;
