@@ -30,7 +30,7 @@ public:
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
-    void zapiszWszystkichUzytkownikowDoPliku();
+
 };
 
 #endif // UZYTKOWNIKMENEDZER
