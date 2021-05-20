@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #ifndef UZYTKOWNIK.h
 #define UZYTKOWNIK.h
@@ -19,5 +20,8 @@ public:
     int pobierzId();
     string pobierzLogin();
     string pobierzHaslo();
+
+
+
 };
 #endif // UZYTKOWNIK
