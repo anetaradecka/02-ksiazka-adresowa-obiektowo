@@ -85,6 +85,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
                     return itr -> pobierzId();
                 }
             }
@@ -114,7 +115,17 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUz
             system("pause");
         }
     }
-    PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(nazwaPlikuZUzytkownikami, uzytkownicy);
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+
+void UzytkownikMenedzer::wylogujUzytkownika()
+{
+    idZalogowanegoUzytkownika = 0;
+}
+
+int UzytkownikMenedzer::getIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
 }
 
 

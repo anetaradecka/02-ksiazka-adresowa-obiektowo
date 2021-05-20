@@ -81,17 +81,14 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     return uzytkownik;
 }
 
-void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(string nazwaPlikuZUzytkownikami, vector <Uzytkownik> uzytkownicy)
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> uzytkownicy)
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
 
-    if(plikTekstowy.is_open()){
-        cout << "Plik otwarty";
-    }
-    else
-        plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in|ios::out|ios::trunc);
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out|ios::trunc);
+
     if (plikTekstowy.good() == true)
     {
         for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)

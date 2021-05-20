@@ -13,6 +13,7 @@ public:
     static string konwerjsaIntNaString(int liczba);
     static string wczytajLinie();
     static string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
+    static char wczytajZnak();
 };
 
 #endif // METODYPOMOCNICZE
