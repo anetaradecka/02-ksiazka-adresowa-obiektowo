@@ -2,26 +2,26 @@
 #ifndef KSIAZKAADRESOWA.h
 #define KSIAZKAADRESOWA.h
 #include "UzytkownikMenedzer.h"
-#include "MenuUzytkownika.h"
+#include "Menu.h"
 
 using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenedzer uzytkownikMenedzer;
-    MenuUzytkownika menuUzytkownika;
+    Menu menu;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), menuUzytkownika() {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), menu() {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
 
         while(true) {
-            switch (menuUzytkownika.wybierzOpcjeZMenuGlownego()) {
+            switch (menu.wybierzOpcjeZMenuGlownego()) {
             case '1':
                 rejestracjaUzytkownika();
                 break;
             case '2':
                 logowanieUzytkownika();
-                cout << "Id zalogowanego uzytkownika: " << uzytkownikMenedzer.getIdZalogowanegoUzytkownika() << endl;
+                cout << "Id zalogowanego uzytkownika: " << uzytkownikMenedzer.getIdZalogowanegoUzytkownika() << endl << endl;
                 system("pause");
                 break;
             case '3':
