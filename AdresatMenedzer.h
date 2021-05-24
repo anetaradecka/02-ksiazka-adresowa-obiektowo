@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
 
@@ -13,6 +14,7 @@ class AdresatMenedzer {
     const string nazwaPlikuZAdresatami;
     PlikZAdresatami plikZAdresatami;
     int idOstatniegoAdresata;
+    bool czyPlikJestPusty(fstream &plikTekstowy);
 
 public:
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
@@ -20,8 +22,8 @@ public:
     };
     void ustawAdresaci(vector <Adresat> adresaci);
     vector <Adresat> pobierzAdresaci();
-    int dodajAdresata();
-    Adresat podajDaneNowegoAdresata(int idOstatniegoAdresata);
+    int dodajAdresata(int idZalogowanegoUzytkownika);
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
     void dopiszAdresataDoPliku(Adresat adresat);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);

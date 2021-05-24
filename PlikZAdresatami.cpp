@@ -8,7 +8,7 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy) {
         return false;
 }
 
-string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
+string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
 
@@ -72,11 +72,11 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::app);
 
     if (plikTekstowy.good() == true)
     {
-        liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+        liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(adresat);
 
         if (czyPlikJestPusty(plikTekstowy) == true)
         {
@@ -93,4 +93,53 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     }
     plikTekstowy.close();
     system("pause");
+}
+
+int PlikZAdresatami::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+{
+    Adresat adresat;
+
+    system("cls");
+    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+
+    adresaci.push_back(adresat);
+    dopiszAdresataDoPliku(adresat);
+
+    return ++idOstatniegoAdresata;
+}
+
+Adresat PlikZAdresatami::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+{
+    Adresat adresat;
+
+    adresat.ustawId(++idOstatniegoAdresata);
+    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+
+    cout << "Podaj imie: ";
+    adresat.ustawImie(zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie()));
+
+    cout << "Podaj nazwisko: ";
+    adresat.ustawNazwisko(zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie()));
+
+    cout << "Podaj numer telefonu: ";
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj email: ";
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj adres: ";
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
+
+    return adresat;
+}
+
+string PlikZAdresatami::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
+{
+    if (!tekst.empty())
+    {
+        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
+        tekst[0] = toupper(tekst[0]);
+    }
+    return tekst;
 }

@@ -1,7 +1,7 @@
 #include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
 
-int AdresatMenedzer::dodajAdresata()
+int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
@@ -89,4 +89,12 @@ string AdresatMenedzer::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
 
     return liniaZDanymiAdresata;
+}
+
+bool AdresatMenedzer::czyPlikJestPusty(fstream &plikTekstowy) {
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
 }
