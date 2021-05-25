@@ -95,21 +95,19 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     system("pause");
 }
 
-int PlikZAdresatami::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+void PlikZAdresatami::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
     dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
 }
 
-Adresat PlikZAdresatami::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+Adresat PlikZAdresatami::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
@@ -132,6 +130,29 @@ Adresat PlikZAdresatami::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, 
     adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
+}
+
+vector <Adresat> PlikZAdresatami::wczytajAdresatowZPliku()
+{
+    Adresat adresat;
+    vector <Adresat> adresaci;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+
+    fstream plikTekstowy;
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+
+    if (plikTekstowy.good() == true) {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
+            adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
+            adresaci.push_back(adresat);
+        }
+        plikTekstowy.close();
+    }
+
+    Adresat ostatniAdresat = adresaci.back();
+    idOstatniegoAdresata = ostatniAdresat.pobierzId();
+
+    return adresaci;
 }
 
 string PlikZAdresatami::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)

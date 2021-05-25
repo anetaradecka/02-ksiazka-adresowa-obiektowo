@@ -51,6 +51,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
         }
         plikTekstowy.close();
     }
+
     return uzytkownicy;
 }
 

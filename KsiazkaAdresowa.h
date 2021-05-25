@@ -15,6 +15,7 @@ class KsiazkaAdresowa {
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami), menu() {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+        adresatMenedzer.wczytajAdresatowZPliku();
 
         while(true) {
             switch (menu.wybierzOpcjeZMenuGlownego()) {
@@ -25,6 +26,7 @@ public:
                 logowanieUzytkownika();
                 cout << "Id zalogowanego uzytkownika: " << uzytkownikMenedzer.getIdZalogowanegoUzytkownika() << endl << endl;
                 system("pause");
+
                 if(uzytkownikMenedzer.getIdZalogowanegoUzytkownika() != 0)
                 {
                     switch(menu.wybierzOpcjeZMenuUzytkownika())

@@ -17,16 +17,21 @@ class PlikZAdresatami
 {
     const string nazwaPlikuZAdresatami;
     vector <Adresat> adresaci;
+    int idOstatniegoAdresata;
     bool czyPlikJestPusty(fstream &plikTekstowy);
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     Adresat pobierzDaneAdresata(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
 
 public:
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
+    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {
+        idOstatniegoAdresata = 0;
+    };
     void dopiszAdresataDoPliku(Adresat adresat);
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    void dodajAdresata(int idZalogowanegoUzytkownika);
+    vector <Adresat> wczytajAdresatowZPliku();
+
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 };
 
 #endif // PLIKZADRESATAMI
