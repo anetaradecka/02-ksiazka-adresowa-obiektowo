@@ -23,6 +23,7 @@ class PlikZAdresatami
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     Adresat pobierzDaneAdresata(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
     PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {
@@ -31,7 +32,7 @@ public:
     void dopiszAdresataDoPliku(Adresat adresat);
     void dodajAdresata(int idZalogowanegoUzytkownika);
     vector <Adresat> wczytajAdresatowZPliku();
-
+    void wyswietlKontakty();
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 };
 

@@ -46,7 +46,7 @@ public:
                             // TODO: wyszukaj adresata po nazwisku
                             break;
                         case '4':
-                            // TODO: wyswietl wszystkich adresatow
+                            adresatMenedzer.wyswietlKontakty();
                             break;
                         }
 

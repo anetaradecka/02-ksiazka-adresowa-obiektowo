@@ -1,6 +1,7 @@
 #include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
 
+
 void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     plikZAdresatami.dodajAdresata(idZalogowanegoUzytkownika);
@@ -42,4 +43,9 @@ bool AdresatMenedzer::czyPlikJestPusty(fstream &plikTekstowy) {
         return true;
     else
         return false;
+}
+
+void AdresatMenedzer::wyswietlKontakty()
+{
+    plikZAdresatami.wyswietlKontakty();
 }
