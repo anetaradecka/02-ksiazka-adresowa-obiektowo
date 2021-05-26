@@ -17,7 +17,7 @@ public:
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
         adresatMenedzer.wczytajAdresatowZPliku();
 
-        while(true) {
+        while (true) {
             switch (menu.wybierzOpcjeZMenuGlownego()) {
             case '1':
                 rejestracjaUzytkownika();
@@ -27,19 +27,31 @@ public:
                 cout << "Id zalogowanego uzytkownika: " << uzytkownikMenedzer.getIdZalogowanegoUzytkownika() << endl << endl;
                 system("pause");
 
-                if(uzytkownikMenedzer.getIdZalogowanegoUzytkownika() != 0)
+                if (uzytkownikMenedzer.getIdZalogowanegoUzytkownika() != 0)
                 {
-                    switch(menu.wybierzOpcjeZMenuUzytkownika())
-                    {
-                    case '1':
-                        adresatMenedzer.dodajAdresata(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
-                        break;
-                    case '4':
+                    char wybranaOpcjaZMenuUzytkownika;
 
-                        break;
-                    case '8':
+                    while (wybranaOpcjaZMenuUzytkownika != '8') {
+                        wybranaOpcjaZMenuUzytkownika = menu.wybierzOpcjeZMenuUzytkownika();
+
+                        switch(wybranaOpcjaZMenuUzytkownika)
+                        {
+                        case '1':
+                            adresatMenedzer.dodajAdresata(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
+                            break;
+                        case '2':
+                            // TODO: wyszukaj adresata po imieniu
+                            break;
+                        case '3':
+                            // TODO: wyszukaj adresata po nazwisku
+                            break;
+                        case '4':
+                            // TODO: wyswietl wszystkich adresatow
+                            break;
+                        }
+
+                        // uzytkownik wybral opcje '8', dlatego nastepuje wylogowanie
                         wylogujUzytkownika();
-                        break;
                     }
                 }
                 system("pause");

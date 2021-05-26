@@ -149,8 +149,10 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZPliku()
         plikTekstowy.close();
     }
 
-    Adresat ostatniAdresat = adresaci.back();
-    idOstatniegoAdresata = ostatniAdresat.pobierzId();
+    if (adresaci.empty() == false) {
+        Adresat ostatniAdresat = adresaci.back();
+        idOstatniegoAdresata = ostatniAdresat.pobierzId();
+    }
 
     return adresaci;
 }
