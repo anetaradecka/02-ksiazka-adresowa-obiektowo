@@ -45,7 +45,7 @@ bool AdresatMenedzer::czyPlikJestPusty(fstream &plikTekstowy) {
         return false;
 }
 
-void AdresatMenedzer::wyswietlKontakty()
+void AdresatMenedzer::wyswietlKontakty(int idZalogowanegoUzytkownika)
 {
-    plikZAdresatami.wyswietlKontakty();
+    plikZAdresatami.wyswietlKontakty(idZalogowanegoUzytkownika);
 }

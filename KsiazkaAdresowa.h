@@ -24,17 +24,16 @@ public:
                 break;
             case '2':
                 logowanieUzytkownika();
-                cout << "Id zalogowanego uzytkownika: " << uzytkownikMenedzer.getIdZalogowanegoUzytkownika() << endl << endl;
-                system("pause");
 
                 if (uzytkownikMenedzer.getIdZalogowanegoUzytkownika() != 0)
                 {
-                    char wybranaOpcjaZMenuUzytkownika;
+                    bool kontynuuj = true;
 
-                    while (wybranaOpcjaZMenuUzytkownika != '8') {
-                        wybranaOpcjaZMenuUzytkownika = menu.wybierzOpcjeZMenuUzytkownika();
+                    // czy to mozna usunac?
+                    system("pause");
 
-                        switch(wybranaOpcjaZMenuUzytkownika)
+                    while (kontynuuj == true) {
+                        switch(menu.wybierzOpcjeZMenuUzytkownika())
                         {
                         case '1':
                             adresatMenedzer.dodajAdresata(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
@@ -46,11 +45,14 @@ public:
                             // TODO: wyszukaj adresata po nazwisku
                             break;
                         case '4':
-                            adresatMenedzer.wyswietlKontakty();
+                            adresatMenedzer.wyswietlKontakty(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
+                            break;
+                        case '8':
+                            kontynuuj = false;
                             break;
                         }
 
-                        // uzytkownik wybral opcje '8', dlatego nastepuje wylogowanie
+                        // wylogowujemy sie, gdy wychodzimy poza petle
                         wylogujUzytkownika();
                     }
                 }

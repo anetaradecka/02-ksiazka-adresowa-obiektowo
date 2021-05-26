@@ -23,7 +23,7 @@ public:
     void wczytajAdresatowZPliku();
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    void wyswietlKontakty();
+    void wyswietlKontakty(int idZalogowanegoUzytkownika);
 };
 
 #endif // ADRESATMENEDZER

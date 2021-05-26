@@ -32,7 +32,7 @@ public:
     void dopiszAdresataDoPliku(Adresat adresat);
     void dodajAdresata(int idZalogowanegoUzytkownika);
     vector <Adresat> wczytajAdresatowZPliku();
-    void wyswietlKontakty();
+    void wyswietlKontakty(int idZalogowanegoUzytkownika);
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 };
 

@@ -117,11 +117,12 @@ void PlikZAdresatami::wyswietlDaneAdresata(Adresat adresat)
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-void PlikZAdresatami::wyswietlKontakty()
+void PlikZAdresatami::wyswietlKontakty(int idZalogowanegoUzytkownika)
 {
     for (vector <Adresat>::iterator  itr = adresaci.begin(); itr != adresaci.end(); itr++)
     {
-        wyswietlDaneAdresata(*itr);
+        if (itr->pobierzIdUzytkownika() == idZalogowanegoUzytkownika)
+            wyswietlDaneAdresata(*itr);
     }
     system("pause");
 }
@@ -156,7 +157,6 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZPliku()
     adresaci.clear();
 
     Adresat adresat;
-    //vector <Adresat> adresaci;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
 
     fstream plikTekstowy;
