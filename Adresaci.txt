@@ -1,2 +1,3 @@
 1|1|Maja|Poreba|123 123 123|gmail|Krakow|
 2|2|Puncia|Kot|147|gmail|krk|
+3|0|Maja|Poreba|123|a|a|

@@ -29,9 +29,6 @@ public:
                 {
                     bool kontynuuj = true;
 
-                    // czy to mozna usunac?
-                    system("pause");
-
                     while (kontynuuj == true) {
                         switch(menu.wybierzOpcjeZMenuUzytkownika())
                         {
@@ -51,15 +48,9 @@ public:
                             kontynuuj = false;
                             break;
                         }
-
-                        // wylogowujemy sie, gdy wychodzimy poza petle
                         wylogujUzytkownika();
                     }
                 }
-                system("pause");
-                break;
-            case '3':
-                wylogujUzytkownika();
                 break;
             case '9':
                 exit(0);

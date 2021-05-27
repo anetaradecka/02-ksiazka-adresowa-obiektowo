@@ -9,7 +9,6 @@ char Menu::wybierzOpcjeZMenuGlownego() {
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
     cout << "2. Logowanie" << endl;
-    cout << "3. Wyloguj" << endl;
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
