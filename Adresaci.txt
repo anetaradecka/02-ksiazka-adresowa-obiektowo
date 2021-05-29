@@ -1,3 +1,6 @@
-1|1|Maja|Poreba|123 123 123|gmail|Krakow|
-2|2|Puncia|Kot|147|gmail|krk|
-3|0|Maja|Poreba|123|a|a|
+1|1|X|X|x|x|x|
+2|1|Y|Y|y|y|y|
+3|2|Z|Z|z|z|z|
+4|2|A|A|a|a|a|
+5|1|K|K|k|k|k|
+6|1|L|L|l|l|l|

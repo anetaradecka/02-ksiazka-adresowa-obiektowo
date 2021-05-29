@@ -46,9 +46,9 @@ public:
                             break;
                         case '8':
                             kontynuuj = false;
+                            wylogujUzytkownika();
                             break;
                         }
-                        wylogujUzytkownika();
                     }
                 }
                 break;

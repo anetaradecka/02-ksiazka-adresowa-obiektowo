@@ -55,7 +55,6 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
         cout << uzytkownicy[i].pobierzId() << endl;
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
-
     }
 }
 
@@ -72,6 +71,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     login = MetodyPomocnicze::wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+
     while (itr != uzytkownicy.end())
     {
         if (itr -> pobierzLogin() == login)
@@ -89,14 +89,18 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                     return itr -> pobierzId();
                 }
             }
+
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
+            idZalogowanegoUzytkownika = 0;
             return 0;
         }
         itr++;
     }
+
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
+    idZalogowanegoUzytkownika = 0;
     return 0;
 }
 
