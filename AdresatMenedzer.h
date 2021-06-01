@@ -17,11 +17,8 @@ class AdresatMenedzer {
 
 public:
     AdresatMenedzer(string NAZWA_PLIKU_Z_ADRESATAMI) : plikZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI) {};
-    void ustawAdresaci(vector <Adresat> adresaci);
-    vector <Adresat> pobierzAdresaci();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
     void wczytajAdresatowZPliku();
-    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    void dodajAdresata(int idZalogowanegoUzytkownika);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     void wyswietlKontakty(int idZalogowanegoUzytkownika);
 };

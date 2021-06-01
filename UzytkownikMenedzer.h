@@ -13,26 +13,26 @@
 using namespace std;
 
 class UzytkownikMenedzer {
+    vector <Uzytkownik> uzytkownicy;
     const string nazwaPlikuZUzytkownikami;
     int idZalogowanegoUzytkownika;
-    vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikZUzytkownikami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikZUzytkownikami;
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
 
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
-    void wylogujUzytkownika();
-    int getIdZalogowanegoUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
-
+    void wylogujUzytkownika();
+    void wczytajUzytkownikowZPliku();
+    int getIdZalogowanegoUzytkownika();
+    // Można usunąć wypisywanie wszystkich użytkowników
+    void wypiszWszystkichUzytkownikow();
 };
 
 #endif // UZYTKOWNIKMENEDZER

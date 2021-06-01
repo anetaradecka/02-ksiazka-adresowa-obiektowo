@@ -15,6 +15,17 @@ string MetodyPomocnicze::wczytajLinie()
     return wejscie;
 }
 
+string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
+{
+    if (!tekst.empty())
+    {
+        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
+        tekst[0] = toupper(tekst[0]);
+    }
+
+    return tekst;
+}
+
 string MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
     string liniaZDanymiUzytkownika = "";
 
@@ -39,7 +50,9 @@ char MetodyPomocnicze::wczytajZnak()
             znak = wejscie[0];
             break;
         }
+
         cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
     }
+
     return znak;
 }

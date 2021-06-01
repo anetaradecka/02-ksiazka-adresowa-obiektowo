@@ -64,10 +64,12 @@ public:
     }
 
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow();
     int logowanieUzytkownika();
-    void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    // Można usunąć wypisywanie użytkowników
+    void wypiszWszystkichUzytkownikow();
+    void wylogujUzytkownika();
+
 
 };
 #endif // KSIAZKAADRESOWA
