@@ -18,8 +18,9 @@ class PlikZAdresatami
     const string nazwaPlikuZAdresatami;
     vector <Adresat> adresaci;
     int idOstatniegoAdresata;
+
     bool czyPlikJestPusty(fstream &plikTekstowy);
-    string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
+    //string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     Adresat pobierzDaneAdresata(string daneJednegoAdresataOddzielonePionowymiKreskami);
     void wyswietlDaneAdresata(Adresat adresat);
 

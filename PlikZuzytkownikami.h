@@ -17,7 +17,6 @@ class PlikZUzytkownikami
     vector <Uzytkownik> uzytkownicy;
 
     bool czyPlikJestPusty(fstream &plikTekstowy);
-    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 public:

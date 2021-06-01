@@ -14,14 +14,12 @@ using namespace std;
 
 class UzytkownikMenedzer {
     vector <Uzytkownik> uzytkownicy;
-    const string nazwaPlikuZUzytkownikami;
-    int idZalogowanegoUzytkownika;
     PlikZUzytkownikami plikZUzytkownikami;
+    int idZalogowanegoUzytkownika;
 
-    Uzytkownik podajDaneNowegoUzytkownika();
-    int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
+    int pobierzIdNowegoUzytkownika();
+    Uzytkownik podajDaneNowegoUzytkownika();
 
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
