@@ -2,9 +2,9 @@
 #include "MetodyPomocnicze.h"
 
 
-void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
+void AdresatMenedzer::dodajAdresata()
 {
-    plikZAdresatami.dodajAdresata(idZalogowanegoUzytkownika);
+    plikZAdresatami.dodajAdresata(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
 
 string AdresatMenedzer::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
@@ -22,11 +22,6 @@ string AdresatMenedzer::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-void AdresatMenedzer::wczytajAdresatowZPliku()
-{
-    adresaci = plikZAdresatami.wczytajAdresatowZPliku();
-}
-
 bool AdresatMenedzer::czyPlikJestPusty(fstream &plikTekstowy) {
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
@@ -35,7 +30,7 @@ bool AdresatMenedzer::czyPlikJestPusty(fstream &plikTekstowy) {
         return false;
 }
 
-void AdresatMenedzer::wyswietlKontakty(int idZalogowanegoUzytkownika)
+void AdresatMenedzer::wyswietlKontakty()
 {
-    plikZAdresatami.wyswietlKontakty(idZalogowanegoUzytkownika);
+    plikZAdresatami.wyswietlKontakty(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }

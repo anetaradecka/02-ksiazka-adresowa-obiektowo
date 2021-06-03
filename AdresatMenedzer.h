@@ -14,13 +14,18 @@ class AdresatMenedzer {
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
     bool czyPlikJestPusty(fstream &plikTekstowy);
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
 
 public:
-    AdresatMenedzer(string NAZWA_PLIKU_Z_ADRESATAMI) : plikZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI) {};
-    void wczytajAdresatowZPliku();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
+    // czy NAZWA-pliku_Z_ADRESATAMI MA BYC TEZ CONST?
+    AdresatMenedzer(string NAZWA_PLIKU_Z_ADRESATAMI, int idZalogowanegoUzytkownika) : plikZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
+    {
+        adresaci = plikZAdresatami.wczytajAdresatowZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    };
+
+    void dodajAdresata();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    void wyswietlKontakty(int idZalogowanegoUzytkownika);
+    void wyswietlKontakty();
 };
 
 #endif // ADRESATMENEDZER

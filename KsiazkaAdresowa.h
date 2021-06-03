@@ -9,13 +9,16 @@ using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
+    AdresatMenedzer *adresatMenedzer;
     Menu menu;
 
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
+
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami), menu() {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+     : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami), menu() {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-        adresatMenedzer.wczytajAdresatowZPliku();
+        adresatMenedzer = NULL;
 
         while (true) {
             switch (menu.wybierzOpcjeZMenuGlownego()) {
@@ -33,7 +36,7 @@ public:
                         switch(menu.wybierzOpcjeZMenuUzytkownika())
                         {
                         case '1':
-                            adresatMenedzer.dodajAdresata(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
+                            adresatMenedzer->dodajAdresata();
                             break;
                         case '2':
                             // TODO: wyszukaj adresata po imieniu
@@ -42,7 +45,7 @@ public:
                             // TODO: wyszukaj adresata po nazwisku
                             break;
                         case '4':
-                            adresatMenedzer.wyswietlKontakty(uzytkownikMenedzer.getIdZalogowanegoUzytkownika());
+                            adresatMenedzer->wyswietlKontakty();
                             break;
                         case '8':
                             kontynuuj = false;
@@ -60,9 +63,13 @@ public:
                 system("pause");
                 break;
             }
-        };
-    }
-
+        }
+    };
+    ~KsiazkaAdresowa()
+    {
+       delete adresatMenedzer;
+       adresatMenedzer = NULL;
+    };
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);

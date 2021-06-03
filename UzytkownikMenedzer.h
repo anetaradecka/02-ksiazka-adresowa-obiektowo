@@ -22,7 +22,10 @@ class UzytkownikMenedzer {
     Uzytkownik podajDaneNowegoUzytkownika();
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){
+        idZalogowanegoUzytkownika = 0;
+    };
+    bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);

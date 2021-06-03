@@ -132,6 +132,14 @@ int UzytkownikMenedzer::getIdZalogowanegoUzytkownika()
     return idZalogowanegoUzytkownika;
 }
 
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
+
 
 
 
