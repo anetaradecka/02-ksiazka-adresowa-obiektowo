@@ -16,7 +16,7 @@ class PlikZUzytkownikami
     const string nazwaPlikuZUzytkownikami;
     vector <Uzytkownik> uzytkownicy;
 
-    bool czyPlikJestPusty(fstream &plikTekstowy);
+    //bool czyPlikJestPusty(fstream &plikTekstowy);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 public:

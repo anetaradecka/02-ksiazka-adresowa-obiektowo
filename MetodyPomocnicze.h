@@ -20,7 +20,7 @@ public:
     static string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     static string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     static char wczytajZnak();
-    //bool czyPlikJestPusty(fstream &plikTekstowy);
+    static bool czyPlikJestPusty(fstream &plikTekstowy);
 };
 
 #endif // METODYPOMOCNICZE
