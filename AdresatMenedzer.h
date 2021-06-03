@@ -24,7 +24,7 @@ public:
     };
 
     void dodajAdresata();
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    //string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     void wyswietlKontakty();
 };
 
