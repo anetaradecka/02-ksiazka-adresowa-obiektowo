@@ -50,13 +50,16 @@ void KsiazkaAdresowa::wyswietlMenu()
                             adresatMenedzer->dodajAdresata();
                             break;
                         case '2':
-                            // TODO: wyszukaj adresata po imieniu
-                            break;
-                        case '3':
-                            // TODO: wyszukaj adresata po nazwisku
+                            // TODO: edytuj addresata
                             break;
                         case '4':
                             adresatMenedzer->wyswietlKontakty();
+                            break;
+                        case '5':
+                            adresatMenedzer->usunAdresata();
+                            break;
+                        case '6':
+                            adresatMenedzer->edytujAdresata();
                             break;
                         case '8':
                             kontynuuj = false;
