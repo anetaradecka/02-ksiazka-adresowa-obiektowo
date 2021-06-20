@@ -19,10 +19,10 @@ int KsiazkaAdresowa::logowanieUzytkownika()
     }
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+/*void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
 {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
-}
+}*/
 
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
@@ -50,7 +50,10 @@ void KsiazkaAdresowa::wyswietlMenu()
                             adresatMenedzer->dodajAdresata();
                             break;
                         case '2':
-                            // TODO: edytuj addresata
+                            adresatMenedzer->wyszukajAdresatowPoImieniu();
+                            break;
+                        case '3':
+                            adresatMenedzer->wyszukajAdresatowPoNazwisku();
                             break;
                         case '4':
                             adresatMenedzer->wyswietlKontakty();
@@ -60,6 +63,9 @@ void KsiazkaAdresowa::wyswietlMenu()
                             break;
                         case '6':
                             adresatMenedzer->edytujAdresata();
+                            break;
+                        case '7':
+                            uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
                             break;
                         case '8':
                             kontynuuj = false;

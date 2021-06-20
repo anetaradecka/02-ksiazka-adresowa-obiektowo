@@ -1,4 +1,5 @@
 #include "UzytkownikMenedzer.h"
+#include "MetodyPomocnicze.h"
 
 void UzytkownikMenedzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -104,7 +105,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     return 0;
 }
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";

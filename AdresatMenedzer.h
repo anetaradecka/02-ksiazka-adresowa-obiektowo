@@ -27,6 +27,9 @@ public:
     void usunAdresata();
     void edytujAdresata();
     void wyswietlKontakty();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+
 };
 
 #endif // ADRESATMENEDZER

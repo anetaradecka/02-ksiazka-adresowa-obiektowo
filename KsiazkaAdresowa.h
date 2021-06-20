@@ -29,7 +29,7 @@ public:
     };
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika();
     // Można usunąć wypisywanie użytkowników
     void wypiszWszystkichUzytkownikow();
     void wylogujUzytkownika();

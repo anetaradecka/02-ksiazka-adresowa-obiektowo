@@ -29,6 +29,8 @@ class PlikZAdresatami
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+
 
 public:
     PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {
@@ -43,6 +45,10 @@ public:
     void wyswietlKontakty(int idZalogowanegoUzytkownika);
     char wybierzOpcjeZMenuEdycja();
     void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+    void wyszukajAdresatowPoImieniu(int idZalogowanegoUzytkownika);
+    void wyszukajAdresatowPoNazwisku(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void aktualizujIdOstatniegoAdresata();
 
 };
 

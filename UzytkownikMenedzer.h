@@ -28,7 +28,7 @@ public:
     bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
     void wczytajUzytkownikowZPliku();
     int getIdZalogowanegoUzytkownika();

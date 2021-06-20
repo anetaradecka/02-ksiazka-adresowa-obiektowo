@@ -1,5 +1,6 @@
 #include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
+#include "UzytkownikMenedzer.h"
 
 
 void AdresatMenedzer::dodajAdresata()
@@ -10,6 +11,7 @@ void AdresatMenedzer::dodajAdresata()
 void AdresatMenedzer::usunAdresata()
 {
     plikZAdresatami.usunAdresata(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    plikZAdresatami.aktualizujIdOstatniegoAdresata();
 }
 
 void AdresatMenedzer::edytujAdresata()
@@ -29,3 +31,14 @@ void AdresatMenedzer::wyswietlKontakty()
 {
     plikZAdresatami.wyswietlKontakty(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
+
+void AdresatMenedzer::wyszukajAdresatowPoImieniu()
+{
+    plikZAdresatami.wyszukajAdresatowPoImieniu(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+}
+
+void AdresatMenedzer::wyszukajAdresatowPoNazwisku()
+{
+    plikZAdresatami.wyszukajAdresatowPoNazwisku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+}
+
