@@ -91,21 +91,25 @@ int PlikZAdresatami::usunAdresata(int idZalogowanegoUzytkownika) {
     bool czyIstniejeAdresat = false;
 
     for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
-        if (itr -> pobierzId() == idUsuwanegoAdresata) {
-            czyIstniejeAdresat = true;
-            cout << endl << "Potwierdz naciskajac klawisz 't': ";
-            znak = MetodyPomocnicze::wczytajZnak();
-            if (znak == 't') {
-                numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-                usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
-                adresaci.erase(itr);
-                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
-                system("pause");
-                return idUsuwanegoAdresata;
-            } else {
-                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
-                system("pause");
-                return 0;
+
+        if(itr->pobierzIdUzytkownika() == idZalogowanegoUzytkownika) {
+
+            if (itr -> pobierzId() == idUsuwanegoAdresata) {
+                czyIstniejeAdresat = true;
+                cout << endl << "Potwierdz naciskajac klawisz 't': ";
+                znak = MetodyPomocnicze::wczytajZnak();
+                if (znak == 't') {
+                    numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
+                    usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                    adresaci.erase(itr);
+                    cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                    system("pause");
+                    return idUsuwanegoAdresata;
+                } else {
+                    cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                    system("pause");
+                    return 0;
+                }
             }
         }
     }
@@ -143,8 +147,10 @@ void PlikZAdresatami::edytujAdresata(int idZalogowanegoUzytkownika) {
     char wybor;
     bool czyIstniejeAdresat = false;
 
-    for (int i = 0; i < adresaci.size(); i++) {
-        if (adresaci[i].pobierzId() == idEdytowanegoAdresata) {
+    //for (int i = 0; i < adresaci.size(); i++) {
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++){
+        if(itr->pobierzIdUzytkownika() == idZalogowanegoUzytkownika) {
+        if (itr->pobierzId() == idEdytowanegoAdresata) {
             czyIstniejeAdresat = true;
             wybor = wybierzOpcjeZMenuEdycja();
 
@@ -152,32 +158,32 @@ void PlikZAdresatami::edytujAdresata(int idZalogowanegoUzytkownika) {
             case '1': {
                 cout << "Podaj nowe imie: ";
                 string sformatowaneImie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie());
-                adresaci[i].ustawImie(sformatowaneImie);
+                itr->ustawImie(sformatowaneImie);
                 // CZY TA FUNKCJA DZIALA Z OBIEKTOWYM ADRESATEM?
-                zaktualizujDaneWybranegoAdresata(adresaci[i], idEdytowanegoAdresata);
+                zaktualizujDaneWybranegoAdresata(*itr, idEdytowanegoAdresata);
                 break;
             }
             case '2': {
                 cout << "Podaj nowe nazwisko: ";
                 string sformatowaneNazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie());
-                adresaci[i].ustawNazwisko(sformatowaneNazwisko);
-                zaktualizujDaneWybranegoAdresata(adresaci[i], idEdytowanegoAdresata);
+                itr->ustawNazwisko(sformatowaneNazwisko);
+                zaktualizujDaneWybranegoAdresata(*itr, idEdytowanegoAdresata);
                 break;
             }// TODO: dodaj klamry wpozostalych case'ach ! ! !
             case '3':
                 cout << "Podaj nowy numer telefonu: ";
-                adresaci[i].ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
-                zaktualizujDaneWybranegoAdresata(adresaci[i], idEdytowanegoAdresata);
+                itr->ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+                zaktualizujDaneWybranegoAdresata(*itr, idEdytowanegoAdresata);
                 break;
             case '4':
                 cout << "Podaj nowy email: ";
-                adresaci[i].ustawEmail(MetodyPomocnicze::wczytajLinie());
-                zaktualizujDaneWybranegoAdresata(adresaci[i], idEdytowanegoAdresata);
+                itr->ustawEmail(MetodyPomocnicze::wczytajLinie());
+                zaktualizujDaneWybranegoAdresata(*itr, idEdytowanegoAdresata);
                 break;
             case '5':
                 cout << "Podaj nowy adres zamieszkania: ";
-                adresaci[i].ustawAdres(MetodyPomocnicze::wczytajLinie());
-                zaktualizujDaneWybranegoAdresata(adresaci[i], idEdytowanegoAdresata);
+                itr->ustawAdres(MetodyPomocnicze::wczytajLinie());
+                zaktualizujDaneWybranegoAdresata(*itr, idEdytowanegoAdresata);
                 break;
             case '6':
                 cout << endl << "Powrot do menu uzytkownika" << endl << endl;
@@ -186,6 +192,7 @@ void PlikZAdresatami::edytujAdresata(int idZalogowanegoUzytkownika) {
                 cout << endl << "Nie ma takiej opcji w menu! Powrot do menu uzytkownika." << endl << endl;
                 break;
             }
+        }
         }
     }
     if (czyIstniejeAdresat == false) {
@@ -339,7 +346,7 @@ vector <Adresat> PlikZAdresatami::wczytajWszystkichAdresatowZPliku() {
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
             adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
-                adresaci.push_back(adresat);
+            adresaci.push_back(adresat);
         }
         plikTekstowy.close();
     }
