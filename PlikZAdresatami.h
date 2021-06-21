@@ -49,6 +49,7 @@ public:
     void wyszukajAdresatowPoNazwisku(int idZalogowanegoUzytkownika);
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
     void aktualizujIdOstatniegoAdresata();
+    vector <Adresat> wczytajWszystkichAdresatowZPliku();
 
 };
 

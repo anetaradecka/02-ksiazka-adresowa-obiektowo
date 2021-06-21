@@ -6,6 +6,7 @@
 
 #include "Uzytkownik.h"
 #include "PlikZuzytkownikami.h"
+#include "PlikZAdresatami.h"
 
 #ifndef UZYTKOWNIKMENEDZER.h
 #define UZYTKOWNIKMENEDZER.h

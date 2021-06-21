@@ -87,6 +87,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
+                  //  int idOstatniegoAdresata = PlikZAdresatami::aktualizujIdOstatniegoAdresata();
                     return itr -> pobierzId();
                 }
             }

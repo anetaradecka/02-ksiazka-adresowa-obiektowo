@@ -120,7 +120,8 @@ int PlikZAdresatami::usunAdresata(int idZalogowanegoUzytkownika) {
 
 void PlikZAdresatami::aktualizujIdOstatniegoAdresata() {
 
-    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+    vector<Adresat> aktualniAdresaci = wczytajWszystkichAdresatowZPliku();
+    for (vector <Adresat>::iterator itr = aktualniAdresaci.begin(); itr != aktualniAdresaci.end(); itr++) {
         idOstatniegoAdresata = 0;
         int idAdresata = itr->pobierzId();
 
@@ -319,6 +320,25 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZPliku(int idZalogowanegoUzytk
                 idOstatniegoAdresata = adresat.pobierzId();
 
             if (adresat.pobierzIdUzytkownika() == idZalogowanegoUzytkownika)
+                adresaci.push_back(adresat);
+        }
+        plikTekstowy.close();
+    }
+
+    return adresaci;
+}
+
+vector <Adresat> PlikZAdresatami::wczytajWszystkichAdresatowZPliku() {
+    adresaci.clear();
+    Adresat adresat;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy;
+
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+
+    if (plikTekstowy.good() == true) {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
+            adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
         }
         plikTekstowy.close();

@@ -29,6 +29,7 @@ public:
     void wyswietlKontakty();
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
+    void aktualizujIdOstatniegoAdresata();
 
 };
 

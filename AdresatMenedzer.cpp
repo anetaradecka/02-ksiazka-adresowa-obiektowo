@@ -42,3 +42,8 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku()
     plikZAdresatami.wyszukajAdresatowPoNazwisku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
 
+void AdresatMenedzer::aktualizujIdOstatniegoAdresata()
+{
+    plikZAdresatami.aktualizujIdOstatniegoAdresata();
+}
+

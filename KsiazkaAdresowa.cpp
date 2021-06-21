@@ -38,6 +38,7 @@ void KsiazkaAdresowa::wyswietlMenu()
                 break;
             case '2':
                 logowanieUzytkownika();
+                adresatMenedzer->aktualizujIdOstatniegoAdresata();
 
                 if (uzytkownikMenedzer.getIdZalogowanegoUzytkownika() != 0)
                 {
